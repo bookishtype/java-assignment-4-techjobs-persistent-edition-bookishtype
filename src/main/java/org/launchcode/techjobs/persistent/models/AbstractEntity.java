@@ -1,13 +1,34 @@
-package org.launchcode.techjobs.persistent.models;
+ackage org.launchcode.techjobs.persistent.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
-
+@MappedSuperclass
 public abstract class AbstractEntity {
 
+    @Id
+    @GeneratedValue
     private int id;
 
+    @NotNull
+    @Size(min = 3, max = 100, message = "Name must be between 3 and 100 characters")
     private String name;
+
+
+
+    //Created constructor
+//    public AbstractEntity(int id, String name) {
+//        this.id = id;
+//        this.name = name;
+//    }
+//
+//    public AbstractEntity() {
+//    }
 
     public int getId() {
         return id;
@@ -20,6 +41,8 @@ public abstract class AbstractEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     @Override
     public String toString() {
