@@ -2,8 +2,8 @@ package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.*;
 
-//@Entity
-//public class Job{
+@Entity
+public class Job{
 
     @Id
     @GeneratedValue
